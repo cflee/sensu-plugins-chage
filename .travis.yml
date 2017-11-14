@@ -14,18 +14,18 @@ rvm:
 notifications:
   email:
     recipients:
-    - sensu-plugin@sensu-plugins.io
+    - myself@cflee.net
     on_success: change
     on_failure: always
 script:
-  - gem build sensu-plugins-skel.gemspec
-  - gem install sensu-plugins-skel-*.gem
+  - gem build sensu-plugins-chage.gemspec
+  - gem install sensu-plugins-chage-*.gem
   - bundle exec rake default
 deploy:
   provider: rubygems
   api_key:
     secure: <encrypted rubygems deploy key>
-  gem: sensu-plugins-skel
+  gem: sensu-plugins-chage
   on:
     tags: true
     all_branches: true
@@ -34,4 +34,4 @@ deploy:
     rvm: 2.2
     rvm: 2.3.0
     rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-skel
+    repo: sensu-plugins/sensu-plugins-chage

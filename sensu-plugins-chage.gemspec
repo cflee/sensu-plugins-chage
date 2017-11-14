@@ -2,30 +2,30 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'date'
-require_relative 'lib/sensu-plugins-skel'
+require_relative 'lib/sensu-plugins-chage'
 
 Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.authors                = ['Sensu-Plugins and contributors']
   s.date                   = Date.today.to_s
-  s.description            = 'Sensu skel plugins'
-  s.email                  = '<sensu-users@googlegroups.com>'
+  s.description            = 'Sensu chage plugin'
+  s.email                  = '<myself@cflee.net>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                  = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
-  s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-skel'
+  s.homepage               = 'https://github.com/cflee/sensu-plugins-chage'
   s.license                = 'MIT'
-  s.metadata               = { 'maintainer'         => 'sensu-plugin',
+  s.metadata               = { 'maintainer'         => 'cflee',
                                'development_status' => 'active',
                                'production_status'  => 'unstable - testing recommended',
                                'release_draft'      => 'false',
                                'release_prerelease' => 'false' }
-  s.name                   = 'sensu-plugins-skel'
+  s.name                   = 'sensu-plugins-chage'
   s.platform               = Gem::Platform::RUBY
   s.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 2.0.0'
-  s.summary                = 'Sensu plugins for skel'
+  s.summary                = 'Sensu chage plugin'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.version                = SensuPluginsSkel::Version::VER_STRING
+  s.version                = SensuPluginsChage::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '~> 1.2'
 

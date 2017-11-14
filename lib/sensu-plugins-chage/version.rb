@@ -1,4 +1,4 @@
-module SensuPluginsSkel
+module SensuPluginsChage
   module Version
     MAJOR = 0
     MINOR = 0
