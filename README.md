@@ -19,12 +19,19 @@ Check accounts for expiry using the `chage` tool.
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
 
 ### `bin/check-password-expiry.rb`
-Running the `chage` command on other accounts requires root access, so under the assumption that you don't run Sensu as root, you must grant sudo rights to the Sensu user to run `chage`.
+Running the `chage` command on other accounts requires root access, so assuming that you don't run Sensu as root, you must grant sudo rights to the Sensu user to run `chage`.
 
 This usually can be done as a file in `/etc/sudoers.d/`:
 ```
 # replace 'sensu' below with the name of your Sensu user
 sensu ALL = NOPASSWD: /usr/bin/chage -l *
+```
+
+This sudoers policy is safe as long as `chage` resists adding other flags behind:
+```
+$ sudo chage -l -M 365 other_user
+chage: do not include "l" with other flags
+[...]
 ```
 
 ## Notes
